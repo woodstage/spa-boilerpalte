@@ -12,6 +12,9 @@ const render = Component =>
   );
 
 render(Application);
+
 if (module.hot) {
-  module.hot.accept('./component/Application.jsx', () => render(Application));
+  module.hot.accept('./component/Application.jsx', () => { 
+    render(require('./component/Application.jsx').default); 
+  });
 };

@@ -20,7 +20,7 @@ class Application extends Component {
     return (
       <div>
         <img className={classes.logo} src={Logo} />
-        hello world!xx
+        hello world!
       </div>
     );
   }

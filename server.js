@@ -8,22 +8,23 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config.js');
 
 const devEnv = process.env.NODE_ENV !== 'production';
-const port = devEnv ? 8081 : process.env.PORT;
+const port = devEnv ? 8080 : process.env.PORT;
 const app = express();
 console.log('process.env.NODE_ENV:::::::', process.env.NODE_ENV);
 if (devEnv) {
   const compiler = webpack(config);
   const middleware = webpackMiddleware(compiler, {
     publicPath: config.output.publicPath,
-    contentBase: 'app'
+    contentBase: 'app',
+    stats: { colors: true }
   });
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler, {
-    log: false,
+    log: console.log,
     path: "/__what",
     heartbeat: 2000
-}));
+  }));
   app.get('*', function response(req, res) {
     res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
     res.end();
