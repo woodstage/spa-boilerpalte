@@ -4,7 +4,8 @@
   "description": "Single page application boilerplate",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
+    "dev": "cross-env NODE_ENV=development node server",
+    "start": "cross-env NODE_ENV=production PORT=8080 node server",
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --config ./webpack.config.production.js --progress --profile --colors",
     "test": ""
   },

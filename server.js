@@ -1,4 +1,5 @@
 /* eslint no-console: 0 */
+'use strict';
 
 const path = require('path');
 const express = require('express');
@@ -8,9 +9,9 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config.js');
 
 const devEnv = process.env.NODE_ENV !== 'production';
-const port = devEnv ? 8080 : process.env.PORT;
+const port = devEnv ? 8081 : process.env.PORT;
 const app = express();
-console.log('process.env.NODE_ENV:::::::', process.env.NODE_ENV);
+
 if (devEnv) {
   const compiler = webpack(config);
   const middleware = webpackMiddleware(compiler, {
