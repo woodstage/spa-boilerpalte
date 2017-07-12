@@ -6,23 +6,21 @@ const express = require('express');
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const config = require('./webpack.config.js');
+const config = require('./webpack.config.development.js');
 
-const devEnv = process.env.NODE_ENV !== 'production';
-const port = devEnv ? 8081 : process.env.PORT;
+const isDevelopment = process.env.NODE_ENV !== 'production';
+const port = process.env.PORT;
 const app = express();
 
-if (devEnv) {
+if (isDevelopment) {
   const compiler = webpack(config);
   const middleware = webpackMiddleware(compiler, {
-    publicPath: config.output.publicPath,
-    contentBase: 'app',
     stats: { colors: true }
   });
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler, {
-    log: console.log,
+    log: false,
     path: "/__what",
     heartbeat: 2000
   }));
