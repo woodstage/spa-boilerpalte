@@ -18,7 +18,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: ['babel-plugin-transform-decorators-legacy'],
+            plugins: ['babel-plugin-transform-decorators-legacy', 'babel-plugin-transform-object-rest-spread'],
             presets: ['env', 'react']
           }
         }
