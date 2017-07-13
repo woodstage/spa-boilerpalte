@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Application from './component/Application.jsx';
+import App from './component/App';
 import { AppContainer } from 'react-hot-loader';
 
 const render = Component =>
@@ -11,10 +11,10 @@ const render = Component =>
     document.getElementById('root')
   );
 
-render(Application);
+render(App);
 
 if (module.hot) {
-  module.hot.accept('./component/Application.jsx', () => { 
-    render(require('./component/Application.jsx').default); 
+  module.hot.accept('./component/App', () => { 
+    render(require('./component/App').default); 
   });
 };

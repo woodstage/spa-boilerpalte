@@ -1,29 +1,24 @@
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
-import Logo from '../resource/logo.svg';
 
 const styles = {
-  application: {
+  app: {
 
-  },
-  logo: {
-    width: '100px'
   }
 };
 
 
 @injectSheet(styles)
-class Application extends Component {
+class App extends Component {
 
   render() {
     const { sheet: { classes } } = this.props;
     return (
-      <div>
-        <img className={classes.logo} src={Logo} />
+      <div className={classes.app}>
         hello world!
       </div>
     );
   }
 };
 
-export default Application;
+export default App;
