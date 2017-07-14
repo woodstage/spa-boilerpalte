@@ -24,6 +24,7 @@ if (isDevelopment) {
     path: "/__what",
     heartbeat: 2000
   }));
+
   app.get('*', function response(req, res) {
     res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
     res.end();

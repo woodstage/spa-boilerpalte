@@ -1,10 +1,10 @@
 {
   "name": "spa-boilerplate",
   "version": "1.0.0",
-  "description": "Single page application boilerplate",
+  "description": "spa boilerplate",
   "main": "server.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development PORT=8081 node server",
+    "dev": "cross-env NODE_ENV=development PORT=8082 node server",
     "start": "cross-env NODE_ENV=production PORT=8080 node server",
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --config ./webpack.config.production.js --progress --profile --colors",
     "test": ""
@@ -12,21 +12,32 @@
   "author": "jiangsheng.yin@hp.com",
   "license": "ISC",
   "dependencies": {
+    "history": "^4.6.3",
+    "material-ui": "^0.18.6",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-hot-loader": "^3.0.0-beta.7",
-    "react-jss": "^6.1.1"
+    "react-jss": "^6.1.1",
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.1",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "react-tap-event-plugin": "^2.0.1",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "bundle-loader": "^0.5.5",
     "cross-env": "^5.0.1",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.29.0",

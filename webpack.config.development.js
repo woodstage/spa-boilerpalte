@@ -9,13 +9,14 @@ module.exports = {
   devServer: {
     compress: true,
     hot: true,
-    inline: true
+    inline: true,
+    historyApiFallback: true
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'inline-source-map',
   entry: {
     app: [
       'react-hot-loader/patch',
-      'webpack-hot-middleware/client?path=/__what&timeout=2000&overlay=false',
+      'webpack-hot-middleware/client?path=/__what&timeout=2000&overlay=false&reload=true',
       './app/index.js'
     ]
   },
@@ -27,7 +28,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: ['react-hot-loader/babel', 'babel-plugin-transform-decorators-legacy', 'babel-plugin-transform-object-rest-spread'],
+            plugins: ['react-hot-loader/babel', 'babel-plugin-transform-decorators-legacy', 'babel-plugin-transform-object-rest-spread', 'babel-plugin-transform-class-properties'],
             presets: ['es2015', 'react']
           }
         }
@@ -55,10 +56,9 @@ module.exports = {
       filename: 'index.html'
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })],
-  resolve: { 
-    extensions: ['.js', '.jsx', '.jpg', '.jpeg', '.png', '.gif', '.svg'] 
+    new webpack.EnvironmentPlugin(['NODE_ENV'])
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx', '.jpg', '.jpeg', '.png', '.gif', '.svg']
   }
 };

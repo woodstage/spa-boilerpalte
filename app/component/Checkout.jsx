@@ -1,26 +1,24 @@
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
-import HeaderContainer from '../container/HeaderContainer';
 
 const styles = {
-  app: {
+  checkout: {
 
   }
 };
 
 
 @injectSheet(styles)
-class App extends Component {
+class Checkout extends Component {
 
   render() {
     const { sheet: { classes } } = this.props;
     return (
-      <div className={classes.app}>
-        <HeaderContainer />
-        {this.props.children}
+      <div className={classes.checkout}>
+        Checkout
       </div>
     );
   }
 };
 
-export default App;
+export default Checkout;

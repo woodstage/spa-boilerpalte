@@ -18,7 +18,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: ['babel-plugin-transform-decorators-legacy', 'babel-plugin-transform-object-rest-spread'],
+            plugins: ['babel-plugin-transform-decorators-legacy', 'babel-plugin-transform-object-rest-spread', 'babel-plugin-transform-class-properties'],
             presets: ['env', 'react']
           }
         }
@@ -52,9 +52,7 @@ module.exports = {
         screw_ie8: true
       }
     }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
+    new webpack.EnvironmentPlugin(['NODE_ENV'])
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.jpg', '.jpeg', '.png', '.gif', '.svg']
